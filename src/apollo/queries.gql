@@ -1,0 +1,64 @@
+query getNews($orderBy: [news_order_by!]! = [{ created_at: desc }]) {
+  news(order_by: $orderBy) {
+    id
+    content
+    created_at
+  }
+}
+
+mutation CreateNews($content: String!) {
+  insert_news_one(object: { content: $content }) {
+    id
+    content
+    created_at
+  }
+}
+
+mutation UpdateNews($id: Int!, $content: String!) {
+  update_news_by_pk(pk_columns: { id: $id }, _set: { content: $content }) {
+    id
+    content
+    created_at
+  }
+}
+
+mutation DeleteNews($id: Int!) {
+  delete_news_by_pk(id: $id) {
+    id
+    content
+  }
+}
+
+query GetTasks($orderBy: [tasks_order_by!]! = [{ created_at: desc }]) {
+  tasks(order_by: $orderBy) {
+    id
+    title
+    created_at
+    user_id
+  }
+}
+
+mutation CreateTask($title: String!) {
+  insert_tasks_one(object: { title: $title }) {
+    id
+    title
+    created_at
+    user_id
+  }
+}
+
+mutation UpdateTask($id: Int!, $title: String!) {
+  update_tasks_by_pk(pk_columns: { id: $id }, _set: { title: $title }) {
+    id
+    title
+    created_at
+    user_id
+  }
+}
+
+mutation DeleteTask($id: Int!) {
+  delete_tasks_by_pk(id: $id) {
+    id
+    title
+  }
+}
