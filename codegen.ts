@@ -1,5 +1,8 @@
 import type { CodegenConfig } from "@graphql-codegen/cli";
-import * as Types from "@/gql/graphql";
+import * as dotenv from "dotenv";
+
+// .env.local ファイルから環境変数をロード
+dotenv.config({ path: ".env.local" });
 
 type HasuraSchemaType = {
   [key: string]: {
@@ -15,9 +18,9 @@ const hasuraSchema = (
 ) => {
   const schemaObj: HasuraSchemaType = {};
 
-  schemaObj["https://nextjs-hasura-kmym.hasura.app/v1/graphql"] = {
+  schemaObj[endpoint || ""] = {
     headers: {
-      "x-hasura-admin-secret": "zrF9yw3xdKaPs2fn",
+      "x-hasura-admin-secret": secret || "",
     },
   };
 

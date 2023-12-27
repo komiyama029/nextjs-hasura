@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "codegen": "graphql-codegen --config codegen.ts -r dotenv/config ./.env.local"
+    "codegen": "graphql-codegen --config codegen.ts"
   },
   "resolutions": {
     "jackspeak": "2.1.1"
@@ -15,6 +15,7 @@
   "dependencies": {
     "@apollo/client": "^3.8.8",
     "@heroicons/react": "^2.1.1",
+    "dotenv": "^16.3.1",
     "firebase": "^10.7.1",
     "graphql": "^16.8.1",
     "next": "14.0.4",
